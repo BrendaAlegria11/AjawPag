@@ -3534,7 +3534,7 @@ img {
 
 .testimonials-section .testimonials-grids:before, .testimonials-section-s2 .testimonials-grids:before {
   content: "";
-  background: url("../images/testimonials/client-pic-bg.jpg") center center/cover no-repeat local;
+  background: url("../images/fondo.jpg") center center/cover no-repeat local;
   width: 300px;
   height: 310px;
   position: absolute;
