@@ -7830,3 +7830,83 @@ img {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/*Video*/
+.modal-video {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.video-content {
+  position: relative;
+  width: 25%;
+  max-width: 700px;
+  padding: 0px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 5px 10px;
+  z-index: 10000; 
+}
+.nav-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.nav-buttons button {
+  pointer-events: all;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* Responsivo para tablets (menor o igual a 768px) */
+@media (max-width: 1024px) {
+  .video-content {
+      width: 95%;
+      max-width: 500px;
+  }
+}
+@media (max-width: 768px) {
+  .video-content {
+      width: 90%;
+      max-width: 500px;
+  }
+}
+
+/* Responsivo para teléfonos (menor o igual a 480px) */
+@media (max-width: 480px) {
+  .video-content {
+      width: 90%;
+      max-width: 100%;
+  }
+}

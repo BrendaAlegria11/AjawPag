@@ -132,7 +132,7 @@
                                 <h2><span>Ofrecemos soluciones</span>Líder en Ingeniería</h2>
                                 <p>AJAW brinda servicios de ingeniería especializados para el sector HORECA, con enfoque en la eficiencia, la confianza y un trato personalizado.</p>
                                 <div class="btns">
-                                    <a href="assets/images/catalogo/CATALOGO_DIGITAL_AJAW (1).pdf" class="theme-btn">Descargar catálogo</a>
+                                    <a href="assets/images/catalogo/CATALOGO_DIGITAL_AJAW (1).pdf" target="_blank" class="theme-btn">Descargar catálogo</a>
                                 </div>
                             </div>
                         </div>
@@ -331,10 +331,67 @@
                 </div>
                 <div class="right-col">
                     <div class="video-holder">
-                        <a href="https://www.facebook.com/share/r/12Jy6uVx4Hp/" class="video-btn" data-type="iframe">
-                            <i class="fa fa-play"></i>Ver video
+                        <a href="#" class="video-btn" onclick="mostrarVideo(event, 0)">
+                            <i class="fa fa-play"></i> Ver videos
                         </a>
                     </div>
+                    
+                    
+                    <!-- Contenedor del modal del video -->
+                    <div id="videoModal" class="modal-video">
+                        <div class="video-content">
+                            <span class="close-btn" onclick="cerrarVideo()">&times;</span>
+                            <video id="miVideo" controls autoplay>
+                                <source id="videoSource" src="assets/images/videos/Video1.mp4" type="video/mp4">
+                                Tu navegador no soporta la reproducción de video.
+                            </video>
+                            <div class="nav-buttons">
+                                <button onclick="cambiarVideo(-1)">&#10094;</button>
+                                <button onclick="cambiarVideo(1)">&#10095;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        const videos = [
+                            'assets/images/videos/Video1.mp4',
+                            'assets/images/videos/Video2.mp4'
+                        ];
+                        let videoActual = 0;
+                        
+                        function mostrarVideo(event, index) {
+                            event.preventDefault();
+                            videoActual = index;
+                            const modal = document.getElementById('videoModal');
+                            const video = document.getElementById('miVideo');
+                            const source = document.getElementById('videoSource');
+                            source.src = videos[videoActual];
+                            video.load();
+                            modal.style.display = 'flex';
+                            video.play();
+                        }
+                        
+                        function cerrarVideo() {
+                            const modal = document.getElementById('videoModal');
+                            const video = document.getElementById('miVideo');
+                            modal.style.display = 'none';
+                            video.pause();
+                        }
+                        
+                        function cambiarVideo(direccion) {
+                            videoActual += direccion;
+                            if (videoActual < 0) videoActual = videos.length - 1;
+                            if (videoActual >= videos.length) videoActual = 0;
+                        
+                            const video = document.getElementById('miVideo');
+                            const source = document.getElementById('videoSource');
+                            source.src = videos[videoActual];
+                            video.load();
+                            video.play();
+                        }
+                        </script>
+                                              
+                         
                 </div>
             </div> <!-- end content -->
         </section>
@@ -588,8 +645,8 @@
                         </div>
                         <div class="contact-info">
                             <ul>
-                                <li><i class="fa fa-phone"></i> +123 (569) 254 78</li>
-                                <li><i class="fa fa-envelope"></i> info-desk@clinkers.com</li>
+                                <li><i class="fa fa-phone"></i> 442 454 0557</li>
+                                <li><i class="fa fa-envelope"></i>ventas@ajaw.com.mx</li>
                                 <li><i class="fa fa-home"></i> Plaza Comercial Los Mendoza, Camino al Cerrito 1-Local 1A, El Pueblito, 76900 Santiago de Querétaro, Qro.</li>
                             </ul>
                         </div>
